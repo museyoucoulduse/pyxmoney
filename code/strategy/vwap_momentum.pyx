@@ -1,5 +1,5 @@
-from strategy.dummy_strategy import DummyStrategy
-from indicator.vwap import VWAP
+from code.strategy.dummy_strategy import DummyStrategy
+from code.indicator.vwap import VWAP
 
 import pandas as pd
 import numpy as np

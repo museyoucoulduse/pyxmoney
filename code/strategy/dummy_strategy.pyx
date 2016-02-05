@@ -1,4 +1,4 @@
-from src.trades import Trades
+from code.src.trades import Trades
 
 import pandas as pd
 

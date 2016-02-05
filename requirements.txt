@@ -1,0 +1,4 @@
+Cython
+pandas
+pyoanda
+matplotlib.pyplot

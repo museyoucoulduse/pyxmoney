@@ -1,7 +1,8 @@
-from strategy.dummy_strategy import DummyStrategy
-from indicator.vwap import VWAP
+from code.strategy.dummy_strategy import DummyStrategy
+from code.indicator.vwap import VWAP
 
 import pandas as pd
+
 
 class VWAP_Aroon(DummyStrategy):
     ''' Aroon Oscillator on VWAP price '''
@@ -33,6 +34,32 @@ class VWAP_Aroon(DummyStrategy):
                 if df1.index[0] > 0:
                     i = i - df1.index[0]
                 df_aroon = pd.DataFrame(vwap, columns=['vwap'])
+
+                # Trying something with numba
+                # @jit(float64(float64[:], int64, int64))
+                # def get_aroon_up(df, span, index):
+                #     return 100 * (span - (index - df[-span:].argmax())) / span
+                #
+                # @jit(float64(float64[:], int64, int64))
+                # def get_aroon_down(df, span, index):
+                #     return 100 * (span - (index - df[-span:].argmin())) / span
+                #
+                # df_now = df_aroon[i-aroon_span:i].vwap
+                # df_before = df_aroon[i-aroon_span-1:i-1].vwap
+                #
+                # aroon_up = get_aroon_up(df_now.values, aroon_span, i)
+                # aroon_down = get_aroon_down(df_now.values, aroon_span, i)
+                # # print(aroon_up, aroon_down)
+                # aroon_up2 = get_aroon_up(df_before.values, aroon_span, i-1)
+                # aroon_down2 = get_aroon_down(df_before.values, aroon_span, i-1)
+                # # print(aroon_up2, aroon_down2)
+                # @jit(float64(float64, float64), nogil=True)
+                # def aroon_osc(up, down):
+                #     return up - down
+                # aroon = aroon_osc(aroon_up, aroon_down)
+                # aroon2 = aroon_osc(aroon_up2, aroon_down2)
+
+
                 aroon_up = 100 * (aroon_span - (i - df_aroon[i-aroon_span:i-1].vwap.idxmax())) / aroon_span
                 aroon_down = 100 * (aroon_span - (i - df_aroon[i-aroon_span:i-1].vwap.idxmin())) / aroon_span
                 aroon_up2 = 100 * (aroon_span - (i-1 - df_aroon[i-aroon_span-1:i-2].vwap.idxmax())) / aroon_span

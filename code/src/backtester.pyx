@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-from strategy.vwap_aroon import VWAP_Aroon
-from strategy.dummy_strategy import DummyStrategy
-from src.profit import Profit
-from src.colors import Colors
-from src.instruments import Instruments
-from src.granularity import Granularity
-from src._helpers import _helpers
+from code.strategy.vwap_aroon import VWAP_Aroon
+from code.strategy.dummy_strategy import DummyStrategy
+from code.src.colors import Colors
+from code.src.profit import Profit
+from code.src.instruments import Instruments
+from code.src.granularity import Granularity
+from code.src._helpers import _helpers
 
 from pyoanda import Client, PRACTICE
 import json
@@ -46,7 +46,7 @@ class Backtester:
             df = self.get_history(ticker, timeframe)
             sl = _helpers._correct_pips(self.strategy.sl, ticker, self.instrument, self.pips)
             tp = _helpers._correct_pips(self.strategy.tp, ticker, self.instrument, self.pips)
-            seconds = _helpers._getGranularitySeconds(tf)
+            seconds = _helpers._getGranularitySeconds(timeframe)
             opt_end = dt.datetime.now() - dt.timedelta(seconds=seconds) * 5000
             print('From {} to {}'.format(opt_end, dt.datetime.now()))
             print('{} {} sl:{} tp:{}'.format(ticker, timeframe, sl, tp))
@@ -83,8 +83,8 @@ class Backtester:
 
         # self.strategy.desciption()
         if self.save_plot:
-            if not os.path.exists('./figures' + granularity) and not os.path.isdir('./figures' + granularity):
-                os.makedirs('figures' + granularity)
+            if not os.path.exists('./figures') and not os.path.isdir('./figures'):
+                os.makedirs('figures')
             profitlst = profit.cumsum_profit()
             plt.plot(range(0, profit.trades), profitlst, linewidth=2.0)
             plt.title('{}'.format(ticker))

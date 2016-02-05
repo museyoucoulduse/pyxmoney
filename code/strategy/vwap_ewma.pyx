@@ -1,11 +1,11 @@
-from strategy.dummy_strategy import DummyStrategy
-from indicator.vwap import VWAP
+from code.strategy.dummy_strategy import DummyStrategy
+from code.indicator.vwap import VWAP
 
 import pandas as pd
 import numpy as np
 
 
-class VWAP_Momentum(DummyStrategy):
+class VWAP_EWMA(DummyStrategy):
     ''' Aroon Oscillator on VWAP price '''
     def __init__(self, sl=500, tp=700, small=30, big=60, **kwargs):
         DummyStrategy.__init__(self, sl, tp)
@@ -17,7 +17,7 @@ class VWAP_Momentum(DummyStrategy):
         print('This strategy responds better to market with VWAP, stoploss {} and takeprofit {}'
               .format(self.sl, self.tp))
 
-    def check_data_for_trades(df1, small, big, sl, tp, **kwargs):
+    def check_data_for_trades(self, df1, small, big, sl, tp, **kwargs):
         self.trades.clear_trades()
         ind = VWAP(df1)
         df1['vwap'] = ind.caluculate()

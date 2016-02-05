@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-from strategy.vwap_aroon import VWAP_Aroon
-from strategy.vwap_momentum import VWAP_Momentum
-from src.backtester import Backtester
+from code.strategy.vwap_ewma import VWAP_EWMA
+from code.strategy.vwap_momentum import VWAP_Momentum
+from code.strategy.vwap_aroon import VWAP_Aroon
+from code.src.backtester import Backtester
 
 import datetime as dt
 import argparse
@@ -82,8 +83,8 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    if not args.strategy and not args.strategy_vwap_aroon and not
-    args.strategy_vwap_ewma and not args.strategy_vwap_momentum:
+    if not args.strategy and not args.strategy_vwap_aroon and not \
+            args.strategy_vwap_ewma and not args.strategy_vwap_momentum:
         print(__author__)
         exit()
     if args.strategy == 'vwap_aroon' or args.strategy_vwap_aroon:
