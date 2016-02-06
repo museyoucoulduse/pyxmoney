@@ -26,7 +26,10 @@ class Profit:
             return last_trade
 
         def count_in_last_trade(last_trade, profit, drawdown, trades):
-            trade = self.trades_list[-1]
+            try:
+                trade = self.trades_list[-1]
+            except IndexError as e:
+                return [0], 0, trades
             if trade[0] < self.df.index[-1]:
                 if trade[1] == 'short':
                     trades += 1

@@ -8,7 +8,7 @@ from code.src.instruments import Instruments
 from code.src.granularity import Granularity
 from code.src._helpers import _helpers
 
-from pyoanda import Client, PRACTICE
+from pyoanda import Client, PRACTICE, exceptions
 import json
 import pandas as pd
 import datetime as dt
@@ -43,7 +43,11 @@ class Backtester:
     def connect(self):
 
         def _connecting(ticker, timeframe):
-            df = self.get_history(ticker, timeframe)
+            try:
+                df = self.get_history(ticker, timeframe)
+            except exceptions.BadRequest as e:
+                print("Houston, we've got a problem: ", e)
+                return None
             sl = _helpers._correct_pips(self.strategy.sl, ticker, self.instrument, self.pips)
             tp = _helpers._correct_pips(self.strategy.tp, ticker, self.instrument, self.pips)
             seconds = _helpers._getGranularitySeconds(timeframe)
