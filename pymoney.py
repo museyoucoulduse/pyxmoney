@@ -86,7 +86,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '-mongo_params', '--save_mongo_params', metavar='MONGO_PARAMS',
         help='set connections string with host and port',
-        default=['mongodb://192.168.0.20:27017'], type=int, required=False
+        default=['mongodb://192.168.0.20:27017'], type=str, required=False
     )
     parser.add_argument(
         '-cached', '--use_cached_candles',
