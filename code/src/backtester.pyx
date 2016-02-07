@@ -15,6 +15,7 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import random
 import os
+from pymongo import MongoClient
 
 
 class Backtester:
@@ -39,15 +40,29 @@ class Backtester:
             self.end = dt.datetime(end).isoformat()
         else:
             self.end = end.isoformat()
+        self.save_mongo = False
+        self.mongo_connection = ''
+        self.cur_mongo_obj = {}
+        self.mongo_candles = None
+        self.download = True
 
     def connect(self):
 
         def _connecting(ticker, timeframe):
-            try:
-                df = self.get_history(ticker, timeframe)
-            except exceptions.BadRequest as e:
-                print("Houston, we've got a problem: ", e)
-                return None
+            if False: #self.download is not True
+                client = MongoClient(self.mongo_connection)
+                db = client.oanda
+                df = pd.read_json(json.dumps(db.oandaCandles.find_one({'ticker': ticker, 'tf': timeframe})['candles']))
+                print('Loaded cached data')
+            else:
+                try:
+                    print('Downloading data')
+                    df = self.get_history(ticker, timeframe)
+                except exceptions.BadRequest as e:
+                    print("Houston, we've got a problem: ", e)
+                    return None
+                print('Ready')
+                self.mongo_candles = df #
             sl = _helpers._correct_pips(self.strategy.sl, ticker, self.instrument, self.pips)
             tp = _helpers._correct_pips(self.strategy.tp, ticker, self.instrument, self.pips)
             seconds = _helpers._getGranularitySeconds(timeframe)
@@ -64,13 +79,20 @@ class Backtester:
                 else:
                     _connecting(ins, self.tf)
         else:
-            _connecting(self.ticker, self.tf)
+            if self.tf is None:
+                for tf in self.timeframe:
+                    _connecting(self.ticker, tf)
+            else:
+                _connecting(self.ticker, self.tf)
 
     def backtest(self, data, sl, tp, ticker, tf, live=False, **kwargs):
-
-        self.strategy.check_data_for_trades(data, sl, tp)
+        if self.strategy.algo_name is 'VWAP_EWMA':
+            self.strategy.check_data_for_trades(data, sl, tp, self.strategy.small, self.strategy.big)
+        else:
+            self.strategy.check_data_for_trades(data, sl, tp)
         trdlst = self.strategy.trades.list_trades()
         profit = Profit(data, trdlst)
+        mongo_list_of_trades = trdlst #
         total_pnl = profit.total_profit()
         if live:
             start = 'LIVE {}@{} total profit: '.format(ticker, tf)
@@ -84,13 +106,17 @@ class Backtester:
             print(start + Colors.FAIL + '{:.4f}'.format(total_pnl) +
                   Colors.ENDC + ' maximum drawdown: {:.2f} in {} trades'.format(
                   profit.max_drawdown(), profit.trades))
-
-        # self.strategy.desciption()
+        mongo_ticker = ticker #
+        mongo_tf = tf #
+        mongo_num_trades = profit.trades #
+        mongo_max_drawdown = profit.max_drawdown() #
+        mongo_total_pnl = total_pnl #
+        
         if self.save_plot:
             if not os.path.exists('./figures') and not os.path.isdir('./figures'):
                 os.makedirs('figures')
-            profitlst = profit.cumsum_profit()
-            plt.plot(range(0, profit.trades), profitlst, linewidth=2.0)
+            profit_cumsum = profit.cumsum_profit()
+            plt.plot(range(0, profit.trades), profit_cumsum, linewidth=2.0)
             plt.title('{}'.format(ticker))
             plt.ylabel('{:.4f} pips in {} trades with max drawdown {:.2f}%'
                        .format(total_pnl, profit.trades, profit.max_drawdown()))
@@ -105,6 +131,90 @@ class Backtester:
                         transparent=False, bbox_inches=None, pad_inches=0.1,
                         frameon=None)
             plt.close()
+        if self.save_mongo:
+            # closer to zero is better
+            mongo_benchmark = ((-(mongo_max_drawdown) * mongo_num_trades) / mongo_total_pnl) *  mongo_total_pnl
+            mongo_profit_list = profit.profit_list() #
+            mongo_profit_cumsum = profit.cumsum_profit().to_json()
+            seconds = _helpers._getGranularitySeconds(tf)
+            mongo_from = (dt.datetime.now() - (dt.timedelta(seconds=seconds) * self.mongo_candles.closeBid.count())).strftime('%Y%m%d%H%M%S') #
+            mongo_to = dt.datetime.now().strftime('%Y%m%d%H%M%S') #
+            mongo_last_price = profit.actual_prices()[-1:].values[0] #
+            
+            cum_sl = []
+            cum_tp = []
+            for trd in trdlst:
+                cum_sl.append(trd[2])
+                cum_tp.append(trd[3])
+                trd[0] = str(trd[0])
+            mongo_mean_sl = pd.DataFrame(cum_sl).mean()[-1:].values[0] #                
+            mongo_mean_tp = pd.DataFrame(cum_tp).mean()[-1:].values[0] #
+            mongo_algo = self.strategy.algo_name #
+            mongo_myid = mongo_ticker + '_' + mongo_tf + '_' + mongo_algo
+            client = MongoClient(self.mongo_connection)
+            print('Connecting to {}'.format(self.mongo_connection))
+            db = client.oanda
+            result = db.oandaTest.find_one({'myid': mongo_myid})
+            if result is not None:
+                db.oandaTest.update({
+                    'myid': result['myid']
+                    },
+                    {
+                        '$set': {
+                            'mean_sl': mongo_mean_sl,
+                            'mean_tp': mongo_mean_tp,
+                            'last_price': mongo_last_price,
+                            'from': mongo_from,
+                            'to': mongo_to,
+                            'max_drawdown': min(result['max_drawdown'], mongo_max_drawdown),
+                            'trade_list': mongo_list_of_trades,
+                            'profit_list': mongo_profit_list,
+                            'profit_cumsum': mongo_profit_cumsum,
+                            'total_pnl': mongo_total_pnl,
+                            'num_trades': mongo_num_trades,
+                            'benchmark': mongo_benchmark
+                        }
+                    })
+            else:
+                db.oandaTest.insert_one({
+                    'myid': mongo_myid,
+                    'ticker': mongo_ticker,
+                    'tf': mongo_tf,
+                    'algo': mongo_algo,
+                    'from': mongo_from,
+                    'mean_sl': mongo_mean_sl,
+                    'mean_tp': mongo_mean_tp,
+                    'last_price': mongo_last_price,
+                    'to': mongo_to,
+                    'max_drawdown': mongo_max_drawdown,
+                    'total_pnl': mongo_total_pnl,
+                    'num_trades': mongo_num_trades,
+                    'trade_list': mongo_list_of_trades,
+                    'profit_list': mongo_profit_list,
+                    'profit_cumsum': mongo_profit_cumsum,
+                    'benchmark': mongo_benchmark
+                })
+            if True: #self.download is True
+                res_candles = db.oandaCandles.find_one({'ticker': mongo_ticker, 'tf': mongo_tf})
+                if res_candles is not None:
+                    db.oandaCandles.update({
+                        'ticker': res_candles['ticker'],
+                        'tf': res_candles['tf'],
+                    },
+                    {
+                        "$set": {'candles': self.mongo_candles.to_json()} 
+                    })
+                else:
+                    db.oandaCandles.insert_one({
+                        'ticker': mongo_ticker,
+                        'tf': mongo_tf,
+                        'candles': self.mongo_candles.to_json()
+                    })
+            print('Benchmark: {}'.format(mongo_benchmark))
+            print('Saved data successfully')
+            client.close()
+            print('Disconnected from database')
+            
 
     def optimize(self, ticker=None, tf=None, min_sl=0, min_tp=0, max_sl=2000, max_tp=6000, steps=20):
         ''' Optimization method running bruteforce '''

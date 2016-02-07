@@ -23,8 +23,8 @@ class VWAP_Aroon(DummyStrategy):
         ind = VWAP(df1)
         df1['vwap'] = ind.caluculate()
         std = df1.std()
-        sl = std.vwap
-        tp = std.vwap * 3
+        sl = std.vwap/3*2
+        tp = std.vwap/3*2 * 3
         print('In-strategy sl {} and tp {}'.format(sl, tp))
         lim = df1.index[aroon_span]
         vwap = []

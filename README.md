@@ -15,6 +15,10 @@ place it in `indicator` folder.
 
 You need at least `python3` and there are some requirements too.
 
+```python
+python setup.py build_ext --inplace
+```
+
 AUTHOR: neosb
 
 LICENSE: Proprietary,

@@ -6,8 +6,8 @@ import numpy as np
 
 
 class VWAP_Momentum(DummyStrategy):
-    ''' Aroon Oscillator on VWAP price '''
-    def __init__(self, sl=500, tp=700, momentum_span=25, **kwargs):
+    ''' Momentum on VWAP price '''
+    def __init__(self, sl=500, tp=700, momentum_span=40, **kwargs):
         DummyStrategy.__init__(self, sl, tp)
         self.momentum_span = momentum_span
         self.algo_name = 'VWAP_Momentum'
@@ -25,8 +25,8 @@ class VWAP_Momentum(DummyStrategy):
         ind = VWAP(df1)
         df1['vwap'] = ind.caluculate()
         std = df1.std()
-        sl = std.vwap
-        tp = std.vwap * 3
+        sl = std.vwap/3*2
+        tp = std.vwap/3*2 * 3
         print('In-strategy sl {} and tp {}'.format(sl, tp))
         lim = df1.index[momentum_span]
         for i in df1.index:

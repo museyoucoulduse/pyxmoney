@@ -6,8 +6,8 @@ import numpy as np
 
 
 class VWAP_EWMA(DummyStrategy):
-    ''' Aroon Oscillator on VWAP price '''
-    def __init__(self, sl=500, tp=700, small=30, big=60, **kwargs):
+    ''' EWMA cross on VWAP price '''
+    def __init__(self, sl=500, tp=700, small=25, big=60, **kwargs):
         DummyStrategy.__init__(self, sl, tp)
         self.small = small
         self.big = big
@@ -17,7 +17,7 @@ class VWAP_EWMA(DummyStrategy):
         print('This strategy responds better to market with VWAP, stoploss {} and takeprofit {}'
               .format(self.sl, self.tp))
 
-    def check_data_for_trades(self, df1, small, big, sl, tp, **kwargs):
+    def check_data_for_trades(self, df1, sl, tp, small, big, **kwargs):
         self.trades.clear_trades()
         ind = VWAP(df1)
         df1['vwap'] = ind.caluculate()
@@ -34,8 +34,8 @@ class VWAP_EWMA(DummyStrategy):
         df1['short'] = bool_table2
         # // checkEquity();
         std = df1.std()
-        sl = std.vwap
-        tp = std.vwap * 3
+        sl = std.vwap/3*2
+        tp = std.vwap/3*2 * 3
         print('In-strategy sl {} and tp {}'.format(sl, tp))
         lim = df1.index[max(big, small)]
         long_ma = []

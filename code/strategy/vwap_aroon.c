@@ -821,7 +821,7 @@ static char __pyx_k_check_data_for_trades[] = "check_data_for_trades";
 static char __pyx_k_code_strategy_vwap_aroon[] = "code.strategy.vwap_aroon";
 static char __pyx_k_code_strategy_dummy_strategy[] = "code.strategy.dummy_strategy";
 static char __pyx_k_Aroon_Oscillator_on_VWAP_price[] = " Aroon Oscillator on VWAP price ";
-static char __pyx_k_home_simon_github_kingofthiefs[] = "/home/simon/github/kingofthiefs/pymoney/code/strategy/vwap_aroon.pyx";
+static char __pyx_k_root_github_pyxmoney_code_strat[] = "/root/github/pyxmoney/code/strategy/vwap_aroon.pyx";
 static char __pyx_k_This_strategy_responds_better_to[] = "This strategy responds better to market with VWAP, stoploss {} and takeprofit {}";
 static char __pyx_k_VWAP_Aroon_check_data_for_trades[] = "VWAP_Aroon.check_data_for_trades.<locals>.rising";
 static char __pyx_k_VWAP_Aroon_check_data_for_trades_2[] = "VWAP_Aroon.check_data_for_trades.<locals>.falling";
@@ -863,7 +863,6 @@ static PyObject *__pyx_n_s_end;
 static PyObject *__pyx_n_s_falling;
 static PyObject *__pyx_n_s_file;
 static PyObject *__pyx_n_s_format;
-static PyObject *__pyx_kp_s_home_simon_github_kingofthiefs;
 static PyObject *__pyx_n_s_i;
 static PyObject *__pyx_n_s_idxmax;
 static PyObject *__pyx_n_s_idxmin;
@@ -884,6 +883,7 @@ static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_qualname;
 static PyObject *__pyx_n_s_rising;
+static PyObject *__pyx_kp_s_root_github_pyxmoney_code_strat;
 static PyObject *__pyx_n_s_self;
 static PyObject *__pyx_n_s_series;
 static PyObject *__pyx_n_s_short;
@@ -1626,7 +1626,7 @@ static PyObject *__pyx_pf_4code_8strategy_10vwap_aroon_10VWAP_Aroon_4check_data_
  *         ind = VWAP(df1)
  *         df1['vwap'] = ind.caluculate()             # <<<<<<<<<<<<<<
  *         std = df1.std()
- *         sl = std.vwap
+ *         sl = std.vwap/3*2
  */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ind, __pyx_n_s_caluculate); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 24; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
@@ -1655,8 +1655,8 @@ static PyObject *__pyx_pf_4code_8strategy_10vwap_aroon_10VWAP_Aroon_4check_data_
  *         ind = VWAP(df1)
  *         df1['vwap'] = ind.caluculate()
  *         std = df1.std()             # <<<<<<<<<<<<<<
- *         sl = std.vwap
- *         tp = std.vwap * 3
+ *         sl = std.vwap/3*2
+ *         tp = std.vwap/3*2 * 3
  */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_std); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 25; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
@@ -1684,24 +1684,36 @@ static PyObject *__pyx_pf_4code_8strategy_10vwap_aroon_10VWAP_Aroon_4check_data_
   /* "code/strategy/vwap_aroon.pyx":26
  *         df1['vwap'] = ind.caluculate()
  *         std = df1.std()
- *         sl = std.vwap             # <<<<<<<<<<<<<<
- *         tp = std.vwap * 3
+ *         sl = std.vwap/3*2             # <<<<<<<<<<<<<<
+ *         tp = std.vwap/3*2 * 3
  *         print('In-strategy sl {} and tp {}'.format(sl, tp))
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_std, __pyx_n_s_vwap); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 26; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_int_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 26; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_Multiply(__pyx_t_3, __pyx_int_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 26; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF_SET(__pyx_v_sl, __pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "code/strategy/vwap_aroon.pyx":27
  *         std = df1.std()
- *         sl = std.vwap
- *         tp = std.vwap * 3             # <<<<<<<<<<<<<<
+ *         sl = std.vwap/3*2
+ *         tp = std.vwap/3*2 * 3             # <<<<<<<<<<<<<<
  *         print('In-strategy sl {} and tp {}'.format(sl, tp))
  *         lim = df1.index[aroon_span]
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_std, __pyx_n_s_vwap); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_int_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_Multiply(__pyx_t_3, __pyx_int_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = PyNumber_Multiply(__pyx_t_1, __pyx_int_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -1709,8 +1721,8 @@ static PyObject *__pyx_pf_4code_8strategy_10vwap_aroon_10VWAP_Aroon_4check_data_
   __pyx_t_3 = 0;
 
   /* "code/strategy/vwap_aroon.pyx":28
- *         sl = std.vwap
- *         tp = std.vwap * 3
+ *         sl = std.vwap/3*2
+ *         tp = std.vwap/3*2 * 3
  *         print('In-strategy sl {} and tp {}'.format(sl, tp))             # <<<<<<<<<<<<<<
  *         lim = df1.index[aroon_span]
  *         vwap = []
@@ -1748,7 +1760,7 @@ static PyObject *__pyx_pf_4code_8strategy_10vwap_aroon_10VWAP_Aroon_4check_data_
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "code/strategy/vwap_aroon.pyx":29
- *         tp = std.vwap * 3
+ *         tp = std.vwap/3*2 * 3
  *         print('In-strategy sl {} and tp {}'.format(sl, tp))
  *         lim = df1.index[aroon_span]             # <<<<<<<<<<<<<<
  *         vwap = []
@@ -2753,7 +2765,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_falling, __pyx_k_falling, sizeof(__pyx_k_falling), 0, 0, 1, 1},
   {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
   {&__pyx_n_s_format, __pyx_k_format, sizeof(__pyx_k_format), 0, 0, 1, 1},
-  {&__pyx_kp_s_home_simon_github_kingofthiefs, __pyx_k_home_simon_github_kingofthiefs, sizeof(__pyx_k_home_simon_github_kingofthiefs), 0, 0, 1, 0},
   {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
   {&__pyx_n_s_idxmax, __pyx_k_idxmax, sizeof(__pyx_k_idxmax), 0, 0, 1, 1},
   {&__pyx_n_s_idxmin, __pyx_k_idxmin, sizeof(__pyx_k_idxmin), 0, 0, 1, 1},
@@ -2774,6 +2785,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
   {&__pyx_n_s_rising, __pyx_k_rising, sizeof(__pyx_k_rising), 0, 0, 1, 1},
+  {&__pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_k_root_github_pyxmoney_code_strat, sizeof(__pyx_k_root_github_pyxmoney_code_strat), 0, 0, 1, 0},
   {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
   {&__pyx_n_s_series, __pyx_k_series, sizeof(__pyx_k_series), 0, 0, 1, 1},
   {&__pyx_n_s_short, __pyx_k_short, sizeof(__pyx_k_short), 0, 0, 1, 1},
@@ -2803,7 +2815,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple_ = PyTuple_Pack(1, __pyx_n_s_series); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_github_kingofthiefs, __pyx_n_s_rising, 70, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_n_s_rising, 70, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 70; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "code/strategy/vwap_aroon.pyx":73
  *                     return (aroon2 < aroon)
@@ -2815,7 +2827,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__3 = PyTuple_Pack(1, __pyx_n_s_series); if (unlikely(!__pyx_tuple__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_github_kingofthiefs, __pyx_n_s_falling, 73, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_n_s_falling, 73, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 73; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "code/strategy/vwap_aroon.pyx":9
  * class VWAP_Aroon(DummyStrategy):
@@ -2827,7 +2839,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__5 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_sl, __pyx_n_s_tp, __pyx_n_s_aroon_span, __pyx_n_s_kwargs); if (unlikely(!__pyx_tuple__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 9; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(4, 0, 5, 0, CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_github_kingofthiefs, __pyx_n_s_init, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 9; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(4, 0, 5, 0, CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_n_s_init, 9, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 9; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_tuple__7 = PyTuple_Pack(3, ((PyObject *)__pyx_int_500), ((PyObject *)__pyx_int_700), ((PyObject *)__pyx_int_25)); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 9; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
@@ -2842,7 +2854,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__8 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 14; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_github_kingofthiefs, __pyx_n_s_desciption, 14, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 14; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_n_s_desciption, 14, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 14; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "code/strategy/vwap_aroon.pyx":18
  *               .format(self.sl, self.tp))
@@ -2854,7 +2866,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__10 = PyTuple_Pack(23, __pyx_n_s_self, __pyx_n_s_df1, __pyx_n_s_sl, __pyx_n_s_tp, __pyx_n_s_aroon_span, __pyx_n_s_kwargs, __pyx_n_s_ind, __pyx_n_s_std, __pyx_n_s_lim, __pyx_n_s_vwap, __pyx_n_s_i, __pyx_n_s_data, __pyx_n_s_df_aroon, __pyx_n_s_aroon_up, __pyx_n_s_aroon_down, __pyx_n_s_aroon_up2, __pyx_n_s_aroon_down2, __pyx_n_s_aroon, __pyx_n_s_aroon2, __pyx_n_s_rising, __pyx_n_s_rising, __pyx_n_s_falling, __pyx_n_s_falling); if (unlikely(!__pyx_tuple__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 18; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
-  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(5, 0, 23, 0, CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_github_kingofthiefs, __pyx_n_s_check_data_for_trades, 18, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 18; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(5, 0, 23, 0, CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_n_s_check_data_for_trades, 18, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 18; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_tuple__12 = PyTuple_Pack(1, ((PyObject *)Py_None)); if (unlikely(!__pyx_tuple__12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 18; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);

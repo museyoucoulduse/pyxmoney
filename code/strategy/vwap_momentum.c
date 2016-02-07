@@ -765,18 +765,18 @@ static char __pyx_k_code_indicator_vwap[] = "code.indicator.vwap";
 static char __pyx_k_VWAP_Momentum___init[] = "VWAP_Momentum.__init__";
 static char __pyx_k_In_strategy_sl_and_tp[] = "In-strategy sl {} and tp {}";
 static char __pyx_k_check_data_for_trades[] = "check_data_for_trades";
+static char __pyx_k_Momentum_on_VWAP_price[] = " Momentum on VWAP price ";
 static char __pyx_k_VWAP_Momentum_desciption[] = "VWAP_Momentum.desciption";
 static char __pyx_k_code_strategy_vwap_momentum[] = "code.strategy.vwap_momentum";
 static char __pyx_k_code_strategy_dummy_strategy[] = "code.strategy.dummy_strategy";
-static char __pyx_k_Aroon_Oscillator_on_VWAP_price[] = " Aroon Oscillator on VWAP price ";
-static char __pyx_k_home_simon_github_kingofthiefs[] = "/home/simon/github/kingofthiefs/pymoney/code/strategy/vwap_momentum.pyx";
+static char __pyx_k_root_github_pyxmoney_code_strat[] = "/root/github/pyxmoney/code/strategy/vwap_momentum.pyx";
 static char __pyx_k_This_strategy_responds_better_to[] = "This strategy responds better to market with VWAP, stoploss {} and takeprofit {}";
 static char __pyx_k_VWAP_Momentum_check_data_for_tra[] = "VWAP_Momentum.check_data_for_trades.<locals>.rising";
 static char __pyx_k_VWAP_Momentum_check_data_for_tra_2[] = "VWAP_Momentum.check_data_for_trades.<locals>.falling";
 static char __pyx_k_VWAP_Momentum_check_data_for_tra_3[] = "VWAP_Momentum.check_data_for_trades";
-static PyObject *__pyx_kp_s_Aroon_Oscillator_on_VWAP_price;
 static PyObject *__pyx_n_s_DummyStrategy;
 static PyObject *__pyx_kp_s_In_strategy_sl_and_tp;
+static PyObject *__pyx_kp_s_Momentum_on_VWAP_price;
 static PyObject *__pyx_kp_s_This_strategy_responds_better_to;
 static PyObject *__pyx_n_s_VWAP;
 static PyObject *__pyx_n_s_VWAP_Momentum;
@@ -802,7 +802,6 @@ static PyObject *__pyx_n_s_falling;
 static PyObject *__pyx_n_s_file;
 static PyObject *__pyx_n_s_floor;
 static PyObject *__pyx_n_s_format;
-static PyObject *__pyx_kp_s_home_simon_github_kingofthiefs;
 static PyObject *__pyx_n_s_i;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_ind;
@@ -826,6 +825,7 @@ static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_qualname;
 static PyObject *__pyx_n_s_rising;
+static PyObject *__pyx_kp_s_root_github_pyxmoney_code_strat;
 static PyObject *__pyx_n_s_self;
 static PyObject *__pyx_n_s_series;
 static PyObject *__pyx_n_s_short;
@@ -847,7 +847,7 @@ static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
 static PyObject *__pyx_int_2;
 static PyObject *__pyx_int_3;
-static PyObject *__pyx_int_25;
+static PyObject *__pyx_int_40;
 static PyObject *__pyx_int_500;
 static PyObject *__pyx_int_700;
 static PyObject *__pyx_tuple_;
@@ -865,8 +865,8 @@ static PyObject *__pyx_codeobj__11;
 
 /* "code/strategy/vwap_momentum.pyx":10
  * class VWAP_Momentum(DummyStrategy):
- *     ''' Aroon Oscillator on VWAP price '''
- *     def __init__(self, sl=500, tp=700, momentum_span=25, **kwargs):             # <<<<<<<<<<<<<<
+ *     ''' Momentum on VWAP price '''
+ *     def __init__(self, sl=500, tp=700, momentum_span=40, **kwargs):             # <<<<<<<<<<<<<<
  *         DummyStrategy.__init__(self, sl, tp)
  *         self.momentum_span = momentum_span
  */
@@ -893,7 +893,7 @@ static PyObject *__pyx_pw_4code_8strategy_13vwap_momentum_13VWAP_Momentum_1__ini
     PyObject* values[4] = {0,0,0,0};
     values[1] = ((PyObject *)((PyObject *)__pyx_int_500));
     values[2] = ((PyObject *)((PyObject *)__pyx_int_700));
-    values[3] = ((PyObject *)((PyObject *)__pyx_int_25));
+    values[3] = ((PyObject *)((PyObject *)__pyx_int_40));
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
@@ -975,8 +975,8 @@ static PyObject *__pyx_pf_4code_8strategy_13vwap_momentum_13VWAP_Momentum___init
   __Pyx_RefNannySetupContext("__init__", 0);
 
   /* "code/strategy/vwap_momentum.pyx":11
- *     ''' Aroon Oscillator on VWAP price '''
- *     def __init__(self, sl=500, tp=700, momentum_span=25, **kwargs):
+ *     ''' Momentum on VWAP price '''
+ *     def __init__(self, sl=500, tp=700, momentum_span=40, **kwargs):
  *         DummyStrategy.__init__(self, sl, tp)             # <<<<<<<<<<<<<<
  *         self.momentum_span = momentum_span
  *         self.algo_name = 'VWAP_Momentum'
@@ -1019,7 +1019,7 @@ static PyObject *__pyx_pf_4code_8strategy_13vwap_momentum_13VWAP_Momentum___init
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "code/strategy/vwap_momentum.pyx":12
- *     def __init__(self, sl=500, tp=700, momentum_span=25, **kwargs):
+ *     def __init__(self, sl=500, tp=700, momentum_span=40, **kwargs):
  *         DummyStrategy.__init__(self, sl, tp)
  *         self.momentum_span = momentum_span             # <<<<<<<<<<<<<<
  *         self.algo_name = 'VWAP_Momentum'
@@ -1038,8 +1038,8 @@ static PyObject *__pyx_pf_4code_8strategy_13vwap_momentum_13VWAP_Momentum___init
 
   /* "code/strategy/vwap_momentum.pyx":10
  * class VWAP_Momentum(DummyStrategy):
- *     ''' Aroon Oscillator on VWAP price '''
- *     def __init__(self, sl=500, tp=700, momentum_span=25, **kwargs):             # <<<<<<<<<<<<<<
+ *     ''' Momentum on VWAP price '''
+ *     def __init__(self, sl=500, tp=700, momentum_span=40, **kwargs):             # <<<<<<<<<<<<<<
  *         DummyStrategy.__init__(self, sl, tp)
  *         self.momentum_span = momentum_span
  */
@@ -1755,7 +1755,7 @@ static PyObject *__pyx_pf_4code_8strategy_13vwap_momentum_13VWAP_Momentum_4check
  *         ind = VWAP(df1)
  *         df1['vwap'] = ind.caluculate()             # <<<<<<<<<<<<<<
  *         std = df1.std()
- *         sl = std.vwap
+ *         sl = std.vwap/3*2
  */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ind, __pyx_n_s_caluculate); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 26; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
@@ -1784,8 +1784,8 @@ static PyObject *__pyx_pf_4code_8strategy_13vwap_momentum_13VWAP_Momentum_4check
  *         ind = VWAP(df1)
  *         df1['vwap'] = ind.caluculate()
  *         std = df1.std()             # <<<<<<<<<<<<<<
- *         sl = std.vwap
- *         tp = std.vwap * 3
+ *         sl = std.vwap/3*2
+ *         tp = std.vwap/3*2 * 3
  */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_df1, __pyx_n_s_std); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 27; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
@@ -1813,24 +1813,36 @@ static PyObject *__pyx_pf_4code_8strategy_13vwap_momentum_13VWAP_Momentum_4check
   /* "code/strategy/vwap_momentum.pyx":28
  *         df1['vwap'] = ind.caluculate()
  *         std = df1.std()
- *         sl = std.vwap             # <<<<<<<<<<<<<<
- *         tp = std.vwap * 3
+ *         sl = std.vwap/3*2             # <<<<<<<<<<<<<<
+ *         tp = std.vwap/3*2 * 3
  *         print('In-strategy sl {} and tp {}'.format(sl, tp))
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_std, __pyx_n_s_vwap); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 28; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_int_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 28; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_Multiply(__pyx_t_3, __pyx_int_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 28; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF_SET(__pyx_v_sl, __pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "code/strategy/vwap_momentum.pyx":29
  *         std = df1.std()
- *         sl = std.vwap
- *         tp = std.vwap * 3             # <<<<<<<<<<<<<<
+ *         sl = std.vwap/3*2
+ *         tp = std.vwap/3*2 * 3             # <<<<<<<<<<<<<<
  *         print('In-strategy sl {} and tp {}'.format(sl, tp))
  *         lim = df1.index[momentum_span]
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_std, __pyx_n_s_vwap); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 29; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_int_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 29; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = PyNumber_Multiply(__pyx_t_3, __pyx_int_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 29; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = PyNumber_Multiply(__pyx_t_1, __pyx_int_3); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 29; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -1838,8 +1850,8 @@ static PyObject *__pyx_pf_4code_8strategy_13vwap_momentum_13VWAP_Momentum_4check
   __pyx_t_3 = 0;
 
   /* "code/strategy/vwap_momentum.pyx":30
- *         sl = std.vwap
- *         tp = std.vwap * 3
+ *         sl = std.vwap/3*2
+ *         tp = std.vwap/3*2 * 3
  *         print('In-strategy sl {} and tp {}'.format(sl, tp))             # <<<<<<<<<<<<<<
  *         lim = df1.index[momentum_span]
  *         for i in df1.index:
@@ -1877,7 +1889,7 @@ static PyObject *__pyx_pf_4code_8strategy_13vwap_momentum_13VWAP_Momentum_4check
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "code/strategy/vwap_momentum.pyx":31
- *         tp = std.vwap * 3
+ *         tp = std.vwap/3*2 * 3
  *         print('In-strategy sl {} and tp {}'.format(sl, tp))
  *         lim = df1.index[momentum_span]             # <<<<<<<<<<<<<<
  *         for i in df1.index:
@@ -2497,9 +2509,9 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {&__pyx_kp_s_Aroon_Oscillator_on_VWAP_price, __pyx_k_Aroon_Oscillator_on_VWAP_price, sizeof(__pyx_k_Aroon_Oscillator_on_VWAP_price), 0, 0, 1, 0},
   {&__pyx_n_s_DummyStrategy, __pyx_k_DummyStrategy, sizeof(__pyx_k_DummyStrategy), 0, 0, 1, 1},
   {&__pyx_kp_s_In_strategy_sl_and_tp, __pyx_k_In_strategy_sl_and_tp, sizeof(__pyx_k_In_strategy_sl_and_tp), 0, 0, 1, 0},
+  {&__pyx_kp_s_Momentum_on_VWAP_price, __pyx_k_Momentum_on_VWAP_price, sizeof(__pyx_k_Momentum_on_VWAP_price), 0, 0, 1, 0},
   {&__pyx_kp_s_This_strategy_responds_better_to, __pyx_k_This_strategy_responds_better_to, sizeof(__pyx_k_This_strategy_responds_better_to), 0, 0, 1, 0},
   {&__pyx_n_s_VWAP, __pyx_k_VWAP, sizeof(__pyx_k_VWAP), 0, 0, 1, 1},
   {&__pyx_n_s_VWAP_Momentum, __pyx_k_VWAP_Momentum, sizeof(__pyx_k_VWAP_Momentum), 0, 0, 1, 1},
@@ -2525,7 +2537,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
   {&__pyx_n_s_floor, __pyx_k_floor, sizeof(__pyx_k_floor), 0, 0, 1, 1},
   {&__pyx_n_s_format, __pyx_k_format, sizeof(__pyx_k_format), 0, 0, 1, 1},
-  {&__pyx_kp_s_home_simon_github_kingofthiefs, __pyx_k_home_simon_github_kingofthiefs, sizeof(__pyx_k_home_simon_github_kingofthiefs), 0, 0, 1, 0},
   {&__pyx_n_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_ind, __pyx_k_ind, sizeof(__pyx_k_ind), 0, 0, 1, 1},
@@ -2549,6 +2560,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
   {&__pyx_n_s_rising, __pyx_k_rising, sizeof(__pyx_k_rising), 0, 0, 1, 1},
+  {&__pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_k_root_github_pyxmoney_code_strat, sizeof(__pyx_k_root_github_pyxmoney_code_strat), 0, 0, 1, 0},
   {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
   {&__pyx_n_s_series, __pyx_k_series, sizeof(__pyx_k_series), 0, 0, 1, 1},
   {&__pyx_n_s_short, __pyx_k_short, sizeof(__pyx_k_short), 0, 0, 1, 1},
@@ -2581,7 +2593,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_series, __pyx_n_s_y); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 37; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_github_kingofthiefs, __pyx_n_s_rising, 37, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 37; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_n_s_rising, 37, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 37; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "code/strategy/vwap_momentum.pyx":40
  *                     return (series[y-1].item() < series[y].item())
@@ -2593,20 +2605,20 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__3 = PyTuple_Pack(2, __pyx_n_s_series, __pyx_n_s_y); if (unlikely(!__pyx_tuple__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 40; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_github_kingofthiefs, __pyx_n_s_falling, 40, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 40; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_n_s_falling, 40, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 40; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "code/strategy/vwap_momentum.pyx":10
  * class VWAP_Momentum(DummyStrategy):
- *     ''' Aroon Oscillator on VWAP price '''
- *     def __init__(self, sl=500, tp=700, momentum_span=25, **kwargs):             # <<<<<<<<<<<<<<
+ *     ''' Momentum on VWAP price '''
+ *     def __init__(self, sl=500, tp=700, momentum_span=40, **kwargs):             # <<<<<<<<<<<<<<
  *         DummyStrategy.__init__(self, sl, tp)
  *         self.momentum_span = momentum_span
  */
   __pyx_tuple__5 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_sl, __pyx_n_s_tp, __pyx_n_s_momentum_span, __pyx_n_s_kwargs); if (unlikely(!__pyx_tuple__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 10; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(4, 0, 5, 0, CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_github_kingofthiefs, __pyx_n_s_init, 10, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 10; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_tuple__7 = PyTuple_Pack(3, ((PyObject *)__pyx_int_500), ((PyObject *)__pyx_int_700), ((PyObject *)__pyx_int_25)); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 10; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(4, 0, 5, 0, CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_n_s_init, 10, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 10; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__7 = PyTuple_Pack(3, ((PyObject *)__pyx_int_500), ((PyObject *)__pyx_int_700), ((PyObject *)__pyx_int_40)); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 10; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
@@ -2620,7 +2632,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__8 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 15; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_github_kingofthiefs, __pyx_n_s_desciption, 15, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 15; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_n_s_desciption, 15, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 15; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "code/strategy/vwap_momentum.pyx":20
  * 
@@ -2632,7 +2644,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__10 = PyTuple_Pack(16, __pyx_n_s_self, __pyx_n_s_df1, __pyx_n_s_sl, __pyx_n_s_tp, __pyx_n_s_momentum_span, __pyx_n_s_kwargs, __pyx_n_s_ind, __pyx_n_s_std, __pyx_n_s_lim, __pyx_n_s_i, __pyx_n_s_mom, __pyx_n_s_mom2, __pyx_n_s_rising, __pyx_n_s_rising, __pyx_n_s_falling, __pyx_n_s_falling); if (unlikely(!__pyx_tuple__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 20; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
-  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(5, 0, 16, 0, CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_github_kingofthiefs, __pyx_n_s_check_data_for_trades, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 20; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(5, 0, 16, 0, CO_VARKEYWORDS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_strat, __pyx_n_s_check_data_for_trades, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 20; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_tuple__12 = PyTuple_Pack(1, ((PyObject *)Py_None)); if (unlikely(!__pyx_tuple__12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 20; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
@@ -2649,7 +2661,7 @@ static int __Pyx_InitGlobals(void) {
   __pyx_int_1 = PyInt_FromLong(1); if (unlikely(!__pyx_int_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_int_2 = PyInt_FromLong(2); if (unlikely(!__pyx_int_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_int_3 = PyInt_FromLong(3); if (unlikely(!__pyx_int_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_int_25 = PyInt_FromLong(25); if (unlikely(!__pyx_int_25)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_int_40 = PyInt_FromLong(40); if (unlikely(!__pyx_int_40)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_int_500 = PyInt_FromLong(500); if (unlikely(!__pyx_int_500)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_int_700 = PyInt_FromLong(700); if (unlikely(!__pyx_int_700)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   return 0;
@@ -2821,8 +2833,8 @@ PyMODINIT_FUNC PyInit_vwap_momentum(void)
  * 
  * 
  * class VWAP_Momentum(DummyStrategy):             # <<<<<<<<<<<<<<
- *     ''' Aroon Oscillator on VWAP price '''
- *     def __init__(self, sl=500, tp=700, momentum_span=25, **kwargs):
+ *     ''' Momentum on VWAP price '''
+ *     def __init__(self, sl=500, tp=700, momentum_span=40, **kwargs):
  */
   __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_DummyStrategy); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 8; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
@@ -2833,13 +2845,13 @@ PyMODINIT_FUNC PyInit_vwap_momentum(void)
   __pyx_t_1 = 0;
   __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 8; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_VWAP_Momentum, __pyx_n_s_VWAP_Momentum, (PyObject *) NULL, __pyx_n_s_code_strategy_vwap_momentum, __pyx_kp_s_Aroon_Oscillator_on_VWAP_price); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 8; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_VWAP_Momentum, __pyx_n_s_VWAP_Momentum, (PyObject *) NULL, __pyx_n_s_code_strategy_vwap_momentum, __pyx_kp_s_Momentum_on_VWAP_price); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 8; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_3);
 
   /* "code/strategy/vwap_momentum.pyx":10
  * class VWAP_Momentum(DummyStrategy):
- *     ''' Aroon Oscillator on VWAP price '''
- *     def __init__(self, sl=500, tp=700, momentum_span=25, **kwargs):             # <<<<<<<<<<<<<<
+ *     ''' Momentum on VWAP price '''
+ *     def __init__(self, sl=500, tp=700, momentum_span=40, **kwargs):             # <<<<<<<<<<<<<<
  *         DummyStrategy.__init__(self, sl, tp)
  *         self.momentum_span = momentum_span
  */
@@ -2878,8 +2890,8 @@ PyMODINIT_FUNC PyInit_vwap_momentum(void)
  * 
  * 
  * class VWAP_Momentum(DummyStrategy):             # <<<<<<<<<<<<<<
- *     ''' Aroon Oscillator on VWAP price '''
- *     def __init__(self, sl=500, tp=700, momentum_span=25, **kwargs):
+ *     ''' Momentum on VWAP price '''
+ *     def __init__(self, sl=500, tp=700, momentum_span=40, **kwargs):
  */
   __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_VWAP_Momentum, __pyx_t_2, __pyx_t_3, NULL, 0, 1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 8; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);

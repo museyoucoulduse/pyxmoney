@@ -821,6 +821,7 @@ static char __pyx_k_metaclass[] = "__metaclass__";
 static char __pyx_k_IndexError[] = "IndexError";
 static char __pyx_k_last_trade[] = "last_trade";
 static char __pyx_k_takeprofit[] = "takeprofit";
+static char __pyx_k_profit_list[] = "profit_list";
 static char __pyx_k_trades_list[] = "trades_list";
 static char __pyx_k_count_profit[] = "count_profit";
 static char __pyx_k_max_drawdown[] = "max_drawdown";
@@ -829,6 +830,7 @@ static char __pyx_k_Profit___init[] = "Profit.__init__";
 static char __pyx_k_actual_prices[] = "actual_prices";
 static char __pyx_k_cumsum_profit[] = "cumsum_profit";
 static char __pyx_k_code_src_profit[] = "code.src.profit";
+static char __pyx_k_Profit_profit_list[] = "Profit.profit_list";
 static char __pyx_k_Profit_count_profit[] = "Profit.count_profit";
 static char __pyx_k_Profit_max_drawdown[] = "Profit.max_drawdown";
 static char __pyx_k_Profit_total_profit[] = "Profit.total_profit";
@@ -837,7 +839,7 @@ static char __pyx_k_fill_new_last_trade[] = "_fill_new_last_trade";
 static char __pyx_k_Profit_actual_prices[] = "Profit.actual_prices";
 static char __pyx_k_Profit_cumsum_profit[] = "Profit.cumsum_profit";
 static char __pyx_k_Cashier_in_da_bank_who_counts_f[] = " Cashier in da bank, who counts for you ";
-static char __pyx_k_home_simon_pyxmoney_code_src_pr[] = "/home/simon/pyxmoney/code/src/profit.pyx";
+static char __pyx_k_root_github_pyxmoney_code_src_p[] = "/root/github/pyxmoney/code/src/profit.pyx";
 static char __pyx_k_Profit_count_profit_locals__fill[] = "Profit.count_profit.<locals>._fill_new_last_trade";
 static char __pyx_k_Profit_count_profit_locals_count[] = "Profit.count_profit.<locals>.count_in_last_trade";
 static PyObject *__pyx_kp_s_Cashier_in_da_bank_who_counts_f;
@@ -851,6 +853,7 @@ static PyObject *__pyx_n_s_Profit_count_profit_locals__fill;
 static PyObject *__pyx_n_s_Profit_count_profit_locals_count;
 static PyObject *__pyx_n_s_Profit_cumsum_profit;
 static PyObject *__pyx_n_s_Profit_max_drawdown;
+static PyObject *__pyx_n_s_Profit_profit_list;
 static PyObject *__pyx_n_s_Profit_total_profit;
 static PyObject *__pyx_n_s_actual_prices;
 static PyObject *__pyx_n_s_append;
@@ -870,7 +873,6 @@ static PyObject *__pyx_n_s_e;
 static PyObject *__pyx_n_s_fill_new_last_trade;
 static PyObject *__pyx_n_s_high;
 static PyObject *__pyx_n_s_highAsk;
-static PyObject *__pyx_kp_s_home_simon_pyxmoney_code_src_pr;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_index;
 static PyObject *__pyx_n_s_init;
@@ -892,7 +894,9 @@ static PyObject *__pyx_n_s_pandas;
 static PyObject *__pyx_n_s_pd;
 static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_profit;
+static PyObject *__pyx_n_s_profit_list;
 static PyObject *__pyx_n_s_qualname;
+static PyObject *__pyx_kp_s_root_github_pyxmoney_code_src_p;
 static PyObject *__pyx_n_s_self;
 static PyObject *__pyx_n_s_short;
 static PyObject *__pyx_n_s_start;
@@ -909,10 +913,11 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit___init__(CYTHON_UNUSED PyOb
 static PyObject *__pyx_pf_4code_3src_6profit_6Profit_12count_profit__fill_new_last_trade(PyObject *__pyx_self, PyObject *__pyx_v_last_trade, PyObject *__pyx_v_trade); /* proto */
 static PyObject *__pyx_pf_4code_3src_6profit_6Profit_12count_profit_2count_in_last_trade(PyObject *__pyx_self, PyObject *__pyx_v_last_trade, PyObject *__pyx_v_profit, PyObject *__pyx_v_drawdown, PyObject *__pyx_v_trades); /* proto */
 static PyObject *__pyx_pf_4code_3src_6profit_6Profit_2count_profit(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_4code_3src_6profit_6Profit_4cumsum_profit(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_4code_3src_6profit_6Profit_6total_profit(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_4code_3src_6profit_6Profit_8max_drawdown(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_4code_3src_6profit_6Profit_10actual_prices(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_4code_3src_6profit_6Profit_4profit_list(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_4code_3src_6profit_6Profit_6cumsum_profit(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_4code_3src_6profit_6Profit_8total_profit(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_4code_3src_6profit_6Profit_10max_drawdown(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_4code_3src_6profit_6Profit_12actual_prices(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self); /* proto */
 static PyObject *__pyx_tp_new_4code_3src_6profit___pyx_scope_struct__count_profit(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_0;
 static PyObject *__pyx_int_1;
@@ -925,6 +930,7 @@ static PyObject *__pyx_tuple__9;
 static PyObject *__pyx_tuple__11;
 static PyObject *__pyx_tuple__13;
 static PyObject *__pyx_tuple__15;
+static PyObject *__pyx_tuple__17;
 static PyObject *__pyx_codeobj__2;
 static PyObject *__pyx_codeobj__4;
 static PyObject *__pyx_codeobj__6;
@@ -933,6 +939,7 @@ static PyObject *__pyx_codeobj__10;
 static PyObject *__pyx_codeobj__12;
 static PyObject *__pyx_codeobj__14;
 static PyObject *__pyx_codeobj__16;
+static PyObject *__pyx_codeobj__18;
 
 /* "code/src/profit.pyx":6
  * class Profit:
@@ -3472,7 +3479,7 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_2count_profit(CYTHON_UNUSED
  *         self.drawdown = -drawdown/self.total_profit()
  *         self.trades = trades             # <<<<<<<<<<<<<<
  * 
- *     def cumsum_profit(self):
+ *     def profit_list(self):
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_cur_scope->__pyx_v_self, __pyx_n_s_trades, __pyx_v_trades) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 109; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
@@ -3516,26 +3523,90 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_2count_profit(CYTHON_UNUSED
 /* "code/src/profit.pyx":111
  *         self.trades = trades
  * 
- *     def cumsum_profit(self):             # <<<<<<<<<<<<<<
- *         return pd.DataFrame(self.profit).cumsum()
+ *     def profit_list(self):             # <<<<<<<<<<<<<<
+ *         return self.profit
  * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_4code_3src_6profit_6Profit_5cumsum_profit(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_4code_3src_6profit_6Profit_5cumsum_profit = {"cumsum_profit", (PyCFunction)__pyx_pw_4code_3src_6profit_6Profit_5cumsum_profit, METH_O, 0};
-static PyObject *__pyx_pw_4code_3src_6profit_6Profit_5cumsum_profit(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_4code_3src_6profit_6Profit_5profit_list(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_4code_3src_6profit_6Profit_5profit_list = {"profit_list", (PyCFunction)__pyx_pw_4code_3src_6profit_6Profit_5profit_list, METH_O, 0};
+static PyObject *__pyx_pw_4code_3src_6profit_6Profit_5profit_list(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("cumsum_profit (wrapper)", 0);
-  __pyx_r = __pyx_pf_4code_3src_6profit_6Profit_4cumsum_profit(__pyx_self, ((PyObject *)__pyx_v_self));
+  __Pyx_RefNannySetupContext("profit_list (wrapper)", 0);
+  __pyx_r = __pyx_pf_4code_3src_6profit_6Profit_4profit_list(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_4code_3src_6profit_6Profit_4cumsum_profit(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_4code_3src_6profit_6Profit_4profit_list(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("profit_list", 0);
+
+  /* "code/src/profit.pyx":112
+ * 
+ *     def profit_list(self):
+ *         return self.profit             # <<<<<<<<<<<<<<
+ * 
+ *     def cumsum_profit(self):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_profit); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "code/src/profit.pyx":111
+ *         self.trades = trades
+ * 
+ *     def profit_list(self):             # <<<<<<<<<<<<<<
+ *         return self.profit
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("code.src.profit.Profit.profit_list", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "code/src/profit.pyx":114
+ *         return self.profit
+ * 
+ *     def cumsum_profit(self):             # <<<<<<<<<<<<<<
+ *         return pd.DataFrame(self.profit).cumsum()
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_4code_3src_6profit_6Profit_7cumsum_profit(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_4code_3src_6profit_6Profit_7cumsum_profit = {"cumsum_profit", (PyCFunction)__pyx_pw_4code_3src_6profit_6Profit_7cumsum_profit, METH_O, 0};
+static PyObject *__pyx_pw_4code_3src_6profit_6Profit_7cumsum_profit(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("cumsum_profit (wrapper)", 0);
+  __pyx_r = __pyx_pf_4code_3src_6profit_6Profit_6cumsum_profit(__pyx_self, ((PyObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_4code_3src_6profit_6Profit_6cumsum_profit(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3549,138 +3620,12 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_4cumsum_profit(CYTHON_UNUSE
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("cumsum_profit", 0);
 
-  /* "code/src/profit.pyx":112
+  /* "code/src/profit.pyx":115
  * 
  *     def cumsum_profit(self):
  *         return pd.DataFrame(self.profit).cumsum()             # <<<<<<<<<<<<<<
  * 
  *     def total_profit(self):
- */
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_pd); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_DataFrame); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_profit); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = NULL;
-  if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
-    if (likely(__pyx_t_5)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_5);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_4, function);
-    }
-  }
-  if (!__pyx_t_5) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_GOTREF(__pyx_t_2);
-  } else {
-    __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
-    __Pyx_GIVEREF(__pyx_t_3);
-    PyTuple_SET_ITEM(__pyx_t_6, 0+1, __pyx_t_3);
-    __pyx_t_3 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  }
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_cumsum); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = NULL;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_2);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_4, function);
-    }
-  }
-  if (__pyx_t_2) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 112; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  }
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "code/src/profit.pyx":111
- *         self.trades = trades
- * 
- *     def cumsum_profit(self):             # <<<<<<<<<<<<<<
- *         return pd.DataFrame(self.profit).cumsum()
- * 
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("code.src.profit.Profit.cumsum_profit", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "code/src/profit.pyx":114
- *         return pd.DataFrame(self.profit).cumsum()
- * 
- *     def total_profit(self):             # <<<<<<<<<<<<<<
- *         return pd.DataFrame(self.profit).sum().values[0]
- * 
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_4code_3src_6profit_6Profit_7total_profit(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_4code_3src_6profit_6Profit_7total_profit = {"total_profit", (PyCFunction)__pyx_pw_4code_3src_6profit_6Profit_7total_profit, METH_O, 0};
-static PyObject *__pyx_pw_4code_3src_6profit_6Profit_7total_profit(PyObject *__pyx_self, PyObject *__pyx_v_self) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("total_profit (wrapper)", 0);
-  __pyx_r = __pyx_pf_4code_3src_6profit_6Profit_6total_profit(__pyx_self, ((PyObject *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_4code_3src_6profit_6Profit_6total_profit(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("total_profit", 0);
-
-  /* "code/src/profit.pyx":115
- * 
- *     def total_profit(self):
- *         return pd.DataFrame(self.profit).sum().values[0]             # <<<<<<<<<<<<<<
- * 
- *     def max_drawdown(self):
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_pd); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 115; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -3716,7 +3661,7 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_6total_profit(CYTHON_UNUSED
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_sum); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 115; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_cumsum); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 115; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -3737,17 +3682,143 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_6total_profit(CYTHON_UNUSED
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_values); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 115; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "code/src/profit.pyx":114
+ *         return self.profit
+ * 
+ *     def cumsum_profit(self):             # <<<<<<<<<<<<<<
+ *         return pd.DataFrame(self.profit).cumsum()
+ * 
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_AddTraceback("code.src.profit.Profit.cumsum_profit", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "code/src/profit.pyx":117
+ *         return pd.DataFrame(self.profit).cumsum()
+ * 
+ *     def total_profit(self):             # <<<<<<<<<<<<<<
+ *         return pd.DataFrame(self.profit).sum().values[0]
+ * 
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_4code_3src_6profit_6Profit_9total_profit(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_4code_3src_6profit_6Profit_9total_profit = {"total_profit", (PyCFunction)__pyx_pw_4code_3src_6profit_6Profit_9total_profit, METH_O, 0};
+static PyObject *__pyx_pw_4code_3src_6profit_6Profit_9total_profit(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("total_profit (wrapper)", 0);
+  __pyx_r = __pyx_pf_4code_3src_6profit_6Profit_8total_profit(__pyx_self, ((PyObject *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_4code_3src_6profit_6Profit_8total_profit(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("total_profit", 0);
+
+  /* "code/src/profit.pyx":118
+ * 
+ *     def total_profit(self):
+ *         return pd.DataFrame(self.profit).sum().values[0]             # <<<<<<<<<<<<<<
+ * 
+ *     def max_drawdown(self):
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_pd); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_DataFrame); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_profit); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_5 = NULL;
+  if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_5)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_5);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
+    }
+  }
+  if (!__pyx_t_5) {
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_GOTREF(__pyx_t_2);
+  } else {
+    __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
+    __Pyx_GIVEREF(__pyx_t_3);
+    PyTuple_SET_ITEM(__pyx_t_6, 0+1, __pyx_t_3);
+    __pyx_t_3 = 0;
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  }
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_sum); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = NULL;
+  if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
+    }
+  }
+  if (__pyx_t_2) {
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  } else {
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  }
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_values); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 115; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  __pyx_t_1 = __Pyx_GetItemInt(__pyx_t_4, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "code/src/profit.pyx":114
+  /* "code/src/profit.pyx":117
  *         return pd.DataFrame(self.profit).cumsum()
  * 
  *     def total_profit(self):             # <<<<<<<<<<<<<<
@@ -3771,7 +3842,7 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_6total_profit(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "code/src/profit.pyx":117
+/* "code/src/profit.pyx":120
  *         return pd.DataFrame(self.profit).sum().values[0]
  * 
  *     def max_drawdown(self):             # <<<<<<<<<<<<<<
@@ -3780,20 +3851,20 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_6total_profit(CYTHON_UNUSED
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_4code_3src_6profit_6Profit_9max_drawdown(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_4code_3src_6profit_6Profit_9max_drawdown = {"max_drawdown", (PyCFunction)__pyx_pw_4code_3src_6profit_6Profit_9max_drawdown, METH_O, 0};
-static PyObject *__pyx_pw_4code_3src_6profit_6Profit_9max_drawdown(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_4code_3src_6profit_6Profit_11max_drawdown(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_4code_3src_6profit_6Profit_11max_drawdown = {"max_drawdown", (PyCFunction)__pyx_pw_4code_3src_6profit_6Profit_11max_drawdown, METH_O, 0};
+static PyObject *__pyx_pw_4code_3src_6profit_6Profit_11max_drawdown(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("max_drawdown (wrapper)", 0);
-  __pyx_r = __pyx_pf_4code_3src_6profit_6Profit_8max_drawdown(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_4code_3src_6profit_6Profit_10max_drawdown(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_4code_3src_6profit_6Profit_8max_drawdown(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_4code_3src_6profit_6Profit_10max_drawdown(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3803,7 +3874,7 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_8max_drawdown(CYTHON_UNUSED
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("max_drawdown", 0);
 
-  /* "code/src/profit.pyx":118
+  /* "code/src/profit.pyx":121
  * 
  *     def max_drawdown(self):
  *         return -abs(self.drawdown*100)             # <<<<<<<<<<<<<<
@@ -3811,22 +3882,22 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_8max_drawdown(CYTHON_UNUSED
  *     def actual_prices(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_drawdown); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_drawdown); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 121; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_int_100); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyNumber_Multiply(__pyx_t_1, __pyx_int_100); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 121; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyNumber_Absolute(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyNumber_Absolute(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 121; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyNumber_Negative(__pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 118; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyNumber_Negative(__pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 121; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "code/src/profit.pyx":117
+  /* "code/src/profit.pyx":120
  *         return pd.DataFrame(self.profit).sum().values[0]
  * 
  *     def max_drawdown(self):             # <<<<<<<<<<<<<<
@@ -3846,7 +3917,7 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_8max_drawdown(CYTHON_UNUSED
   return __pyx_r;
 }
 
-/* "code/src/profit.pyx":120
+/* "code/src/profit.pyx":123
  *         return -abs(self.drawdown*100)
  * 
  *     def actual_prices(self):             # <<<<<<<<<<<<<<
@@ -3854,20 +3925,20 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_8max_drawdown(CYTHON_UNUSED
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_4code_3src_6profit_6Profit_11actual_prices(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
-static PyMethodDef __pyx_mdef_4code_3src_6profit_6Profit_11actual_prices = {"actual_prices", (PyCFunction)__pyx_pw_4code_3src_6profit_6Profit_11actual_prices, METH_O, 0};
-static PyObject *__pyx_pw_4code_3src_6profit_6Profit_11actual_prices(PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_4code_3src_6profit_6Profit_13actual_prices(PyObject *__pyx_self, PyObject *__pyx_v_self); /*proto*/
+static PyMethodDef __pyx_mdef_4code_3src_6profit_6Profit_13actual_prices = {"actual_prices", (PyCFunction)__pyx_pw_4code_3src_6profit_6Profit_13actual_prices, METH_O, 0};
+static PyObject *__pyx_pw_4code_3src_6profit_6Profit_13actual_prices(PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("actual_prices (wrapper)", 0);
-  __pyx_r = __pyx_pf_4code_3src_6profit_6Profit_10actual_prices(__pyx_self, ((PyObject *)__pyx_v_self));
+  __pyx_r = __pyx_pf_4code_3src_6profit_6Profit_12actual_prices(__pyx_self, ((PyObject *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_4code_3src_6profit_6Profit_10actual_prices(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
+static PyObject *__pyx_pf_4code_3src_6profit_6Profit_12actual_prices(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3877,22 +3948,22 @@ static PyObject *__pyx_pf_4code_3src_6profit_6Profit_10actual_prices(CYTHON_UNUS
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("actual_prices", 0);
 
-  /* "code/src/profit.pyx":121
+  /* "code/src/profit.pyx":124
  * 
  *     def actual_prices(self):
  *         return self.df['closeBid']             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_df); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 121; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_df); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 124; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_GetItem(__pyx_t_1, __pyx_n_s_closeBid); if (unlikely(__pyx_t_2 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 121; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+  __pyx_t_2 = PyObject_GetItem(__pyx_t_1, __pyx_n_s_closeBid); if (unlikely(__pyx_t_2 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 124; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "code/src/profit.pyx":120
+  /* "code/src/profit.pyx":123
  *         return -abs(self.drawdown*100)
  * 
  *     def actual_prices(self):             # <<<<<<<<<<<<<<
@@ -4049,6 +4120,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_Profit_count_profit_locals_count, __pyx_k_Profit_count_profit_locals_count, sizeof(__pyx_k_Profit_count_profit_locals_count), 0, 0, 1, 1},
   {&__pyx_n_s_Profit_cumsum_profit, __pyx_k_Profit_cumsum_profit, sizeof(__pyx_k_Profit_cumsum_profit), 0, 0, 1, 1},
   {&__pyx_n_s_Profit_max_drawdown, __pyx_k_Profit_max_drawdown, sizeof(__pyx_k_Profit_max_drawdown), 0, 0, 1, 1},
+  {&__pyx_n_s_Profit_profit_list, __pyx_k_Profit_profit_list, sizeof(__pyx_k_Profit_profit_list), 0, 0, 1, 1},
   {&__pyx_n_s_Profit_total_profit, __pyx_k_Profit_total_profit, sizeof(__pyx_k_Profit_total_profit), 0, 0, 1, 1},
   {&__pyx_n_s_actual_prices, __pyx_k_actual_prices, sizeof(__pyx_k_actual_prices), 0, 0, 1, 1},
   {&__pyx_n_s_append, __pyx_k_append, sizeof(__pyx_k_append), 0, 0, 1, 1},
@@ -4068,7 +4140,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_fill_new_last_trade, __pyx_k_fill_new_last_trade, sizeof(__pyx_k_fill_new_last_trade), 0, 0, 1, 1},
   {&__pyx_n_s_high, __pyx_k_high, sizeof(__pyx_k_high), 0, 0, 1, 1},
   {&__pyx_n_s_highAsk, __pyx_k_highAsk, sizeof(__pyx_k_highAsk), 0, 0, 1, 1},
-  {&__pyx_kp_s_home_simon_pyxmoney_code_src_pr, __pyx_k_home_simon_pyxmoney_code_src_pr, sizeof(__pyx_k_home_simon_pyxmoney_code_src_pr), 0, 0, 1, 0},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_index, __pyx_k_index, sizeof(__pyx_k_index), 0, 0, 1, 1},
   {&__pyx_n_s_init, __pyx_k_init, sizeof(__pyx_k_init), 0, 0, 1, 1},
@@ -4090,7 +4161,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_pd, __pyx_k_pd, sizeof(__pyx_k_pd), 0, 0, 1, 1},
   {&__pyx_n_s_prepare, __pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 0, 1, 1},
   {&__pyx_n_s_profit, __pyx_k_profit, sizeof(__pyx_k_profit), 0, 0, 1, 1},
+  {&__pyx_n_s_profit_list, __pyx_k_profit_list, sizeof(__pyx_k_profit_list), 0, 0, 1, 1},
   {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
+  {&__pyx_kp_s_root_github_pyxmoney_code_src_p, __pyx_k_root_github_pyxmoney_code_src_p, sizeof(__pyx_k_root_github_pyxmoney_code_src_p), 0, 0, 1, 0},
   {&__pyx_n_s_self, __pyx_k_self, sizeof(__pyx_k_self), 0, 0, 1, 1},
   {&__pyx_n_s_short, __pyx_k_short, sizeof(__pyx_k_short), 0, 0, 1, 1},
   {&__pyx_n_s_start, __pyx_k_start, sizeof(__pyx_k_start), 0, 0, 1, 1},
@@ -4126,7 +4199,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_last_trade, __pyx_n_s_trade); if (unlikely(!__pyx_tuple_)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 20; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_pyxmoney_code_src_pr, __pyx_n_s_fill_new_last_trade, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 20; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_src_p, __pyx_n_s_fill_new_last_trade, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 20; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "code/src/profit.pyx":28
  *             return last_trade
@@ -4138,7 +4211,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__3 = PyTuple_Pack(6, __pyx_n_s_last_trade, __pyx_n_s_profit, __pyx_n_s_drawdown, __pyx_n_s_trades, __pyx_n_s_trade, __pyx_n_s_e); if (unlikely(!__pyx_tuple__3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 28; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(4, 0, 6, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_pyxmoney_code_src_pr, __pyx_n_s_count_in_last_trade, 28, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 28; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(4, 0, 6, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_src_p, __pyx_n_s_count_in_last_trade, 28, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 28; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "code/src/profit.pyx":6
  * class Profit:
@@ -4150,7 +4223,7 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__5 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_myopt2, __pyx_n_s_trades_list); if (unlikely(!__pyx_tuple__5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 6; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
-  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_pyxmoney_code_src_pr, __pyx_n_s_init, 6, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 6; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__6 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__5, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_src_p, __pyx_n_s_init, 6, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 6; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "code/src/profit.pyx":14
  *         self.count_profit()
@@ -4162,54 +4235,66 @@ static int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__7 = PyTuple_Pack(12, __pyx_n_s_self, __pyx_n_s_last_trade, __pyx_n_s_profit, __pyx_n_s_drawdown, __pyx_n_s_trades, __pyx_n_s_fill_new_last_trade, __pyx_n_s_fill_new_last_trade, __pyx_n_s_count_in_last_trade, __pyx_n_s_count_in_last_trade, __pyx_n_s_trade, __pyx_n_s_start, __pyx_n_s_diff); if (unlikely(!__pyx_tuple__7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 14; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 12, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_pyxmoney_code_src_pr, __pyx_n_s_count_profit, 14, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 14; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(1, 0, 12, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_src_p, __pyx_n_s_count_profit, 14, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 14; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "code/src/profit.pyx":111
  *         self.trades = trades
  * 
- *     def cumsum_profit(self):             # <<<<<<<<<<<<<<
- *         return pd.DataFrame(self.profit).cumsum()
+ *     def profit_list(self):             # <<<<<<<<<<<<<<
+ *         return self.profit
  * 
  */
   __pyx_tuple__9 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 111; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
-  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_pyxmoney_code_src_pr, __pyx_n_s_cumsum_profit, 111, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 111; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_src_p, __pyx_n_s_profit_list, 111, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 111; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
   /* "code/src/profit.pyx":114
+ *         return self.profit
+ * 
+ *     def cumsum_profit(self):             # <<<<<<<<<<<<<<
+ *         return pd.DataFrame(self.profit).cumsum()
+ * 
+ */
+  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_tuple__11);
+  __Pyx_GIVEREF(__pyx_tuple__11);
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_src_p, __pyx_n_s_cumsum_profit, 114, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+
+  /* "code/src/profit.pyx":117
  *         return pd.DataFrame(self.profit).cumsum()
  * 
  *     def total_profit(self):             # <<<<<<<<<<<<<<
  *         return pd.DataFrame(self.profit).sum().values[0]
  * 
  */
-  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_tuple__11);
-  __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_pyxmoney_code_src_pr, __pyx_n_s_total_profit, 114, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_tuple__13);
+  __Pyx_GIVEREF(__pyx_tuple__13);
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_src_p, __pyx_n_s_total_profit, 117, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "code/src/profit.pyx":117
+  /* "code/src/profit.pyx":120
  *         return pd.DataFrame(self.profit).sum().values[0]
  * 
  *     def max_drawdown(self):             # <<<<<<<<<<<<<<
  *         return -abs(self.drawdown*100)
  * 
  */
-  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_tuple__13);
-  __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_pyxmoney_code_src_pr, __pyx_n_s_max_drawdown, 117, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_tuple__15);
+  __Pyx_GIVEREF(__pyx_tuple__15);
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_src_p, __pyx_n_s_max_drawdown, 120, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "code/src/profit.pyx":120
+  /* "code/src/profit.pyx":123
  *         return -abs(self.drawdown*100)
  * 
  *     def actual_prices(self):             # <<<<<<<<<<<<<<
  *         return self.df['closeBid']
  */
-  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_tuple__15);
-  __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_home_simon_pyxmoney_code_src_pr, __pyx_n_s_actual_prices, 120, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__17)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_tuple__17);
+  __Pyx_GIVEREF(__pyx_tuple__17);
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_root_github_pyxmoney_code_src_p, __pyx_n_s_actual_prices, 123, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -4372,48 +4457,60 @@ PyMODINIT_FUNC PyInit_profit(void)
   /* "code/src/profit.pyx":111
  *         self.trades = trades
  * 
+ *     def profit_list(self):             # <<<<<<<<<<<<<<
+ *         return self.profit
+ * 
+ */
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4code_3src_6profit_6Profit_5profit_list, 0, __pyx_n_s_Profit_profit_list, NULL, __pyx_n_s_code_src_profit, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 111; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_profit_list, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 111; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "code/src/profit.pyx":114
+ *         return self.profit
+ * 
  *     def cumsum_profit(self):             # <<<<<<<<<<<<<<
  *         return pd.DataFrame(self.profit).cumsum()
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4code_3src_6profit_6Profit_5cumsum_profit, 0, __pyx_n_s_Profit_cumsum_profit, NULL, __pyx_n_s_code_src_profit, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 111; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4code_3src_6profit_6Profit_7cumsum_profit, 0, __pyx_n_s_Profit_cumsum_profit, NULL, __pyx_n_s_code_src_profit, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_cumsum_profit, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 111; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_cumsum_profit, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "code/src/profit.pyx":114
+  /* "code/src/profit.pyx":117
  *         return pd.DataFrame(self.profit).cumsum()
  * 
  *     def total_profit(self):             # <<<<<<<<<<<<<<
  *         return pd.DataFrame(self.profit).sum().values[0]
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4code_3src_6profit_6Profit_7total_profit, 0, __pyx_n_s_Profit_total_profit, NULL, __pyx_n_s_code_src_profit, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4code_3src_6profit_6Profit_9total_profit, 0, __pyx_n_s_Profit_total_profit, NULL, __pyx_n_s_code_src_profit, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_total_profit, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 114; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_total_profit, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "code/src/profit.pyx":117
+  /* "code/src/profit.pyx":120
  *         return pd.DataFrame(self.profit).sum().values[0]
  * 
  *     def max_drawdown(self):             # <<<<<<<<<<<<<<
  *         return -abs(self.drawdown*100)
  * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4code_3src_6profit_6Profit_9max_drawdown, 0, __pyx_n_s_Profit_max_drawdown, NULL, __pyx_n_s_code_src_profit, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4code_3src_6profit_6Profit_11max_drawdown, 0, __pyx_n_s_Profit_max_drawdown, NULL, __pyx_n_s_code_src_profit, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_max_drawdown, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 117; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_max_drawdown, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "code/src/profit.pyx":120
+  /* "code/src/profit.pyx":123
  *         return -abs(self.drawdown*100)
  * 
  *     def actual_prices(self):             # <<<<<<<<<<<<<<
  *         return self.df['closeBid']
  */
-  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4code_3src_6profit_6Profit_11actual_prices, 0, __pyx_n_s_Profit_actual_prices, NULL, __pyx_n_s_code_src_profit, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_CyFunction_NewEx(&__pyx_mdef_4code_3src_6profit_6Profit_13actual_prices, 0, __pyx_n_s_Profit_actual_prices, NULL, __pyx_n_s_code_src_profit, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_actual_prices, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 120; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_actual_prices, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 123; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "code/src/profit.pyx":4

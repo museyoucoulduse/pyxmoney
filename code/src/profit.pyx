@@ -108,6 +108,9 @@ class Profit:
         self.drawdown = -drawdown/self.total_profit()
         self.trades = trades
 
+    def profit_list(self):
+        return self.profit
+
     def cumsum_profit(self):
         return pd.DataFrame(self.profit).cumsum()
 

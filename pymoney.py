@@ -43,8 +43,8 @@ if __name__ == '__main__':
         type=int, required=False)
     parser.add_argument(
         '-vwap_ewma_params', '--strategy_vwap_ewma_params',
-        default=[500, 700, 40], metavar='VWAP_EWMA_PARAMS',
-        help='give parameters to VWAP_EWMA strategy: sl, tp and span',
+        default=[500, 700, 25, 60], metavar='VWAP_EWMA_PARAMS',
+        help='give parameters to VWAP_EWMA strategy: sl, tp, short ma and long ma',
         type=int, required=False)
     parser.add_argument(
         '-i', '--instrument', metavar='TICKER',
@@ -78,6 +78,22 @@ if __name__ == '__main__':
         action='store_true', required=False
     )
     parser.add_argument(
+        '-mongo', '--save_mongo',
+        help='save realized profit and loss to MongoDB' +
+        'If you want to run multiple backtests you should run this.',
+        action='store_true', required=False
+    )
+    parser.add_argument(
+        '-mongo_params', '--save_mongo_params', metavar='MONGO_PARAMS',
+        help='set connections string with host and port',
+        default=['mongodb://192.168.0.20:27017'], type=int, required=False
+    )
+    parser.add_argument(
+        '-cached', '--use_cached_candles',
+        help='Use cached data insead of download from server',
+        action='store_false', required=False
+    )
+    parser.add_argument(
         '-v', '--version', action='version',
         version='%(prog)s 0.1.0')
 
@@ -100,6 +116,11 @@ if __name__ == '__main__':
                 args.instrument, args.timeframe, end_date)
             if args.save_plot:
                 bt.save_plot = True
+            if args.save_mongo:
+                bt.save_mongo = True
+                bt.mongo_connection = args.save_mongo_params
+            if not args.use_cached_candles:
+                bt.download = False
     elif args.strategy == 'vwap_momentum' or args.strategy_vwap_momentum:
         if args.strategy_vwap_momentum_params is not None:
             if type(args.end_date) is not dt.datetime:
@@ -107,12 +128,17 @@ if __name__ == '__main__':
             else:
                 end_date = args.end_date
             bt = Backtester(VWAP_Momentum(
-                args.strategy_vwap_aroon_params[0],
-                args.strategy_vwap_aroon_params[1],
-                args.strategy_vwap_aroon_params[2]),
+                args.strategy_vwap_momentum_params[0],
+                args.strategy_vwap_momentum_params[1],
+                args.strategy_vwap_momentum_params[2]),
                 args.instrument, args.timeframe, end_date)
             if args.save_plot:
                 bt.save_plot = True
+            if args.save_mongo:
+                bt.save_mongo = True
+                bt.mongo_connection = args.save_mongo_params
+            if not args.use_cached_candles:
+                bt.download = False
     elif args.strategy == 'vwap_ewma' or args.strategy_vwap_ewma:
         if args.strategy_vwap_ewma_params is not None:
             if type(args.end_date) is not dt.datetime:
@@ -120,12 +146,18 @@ if __name__ == '__main__':
             else:
                 end_date = args.end_date
             bt = Backtester(VWAP_EWMA(
-                args.strategy_vwap_aroon_params[0],
-                args.strategy_vwap_aroon_params[1],
-                args.strategy_vwap_aroon_params[2]),
+                args.strategy_vwap_ewma_params[0],
+                args.strategy_vwap_ewma_params[1],
+                args.strategy_vwap_ewma_params[2],
+                args.strategy_vwap_ewma_params[3]),
                 args.instrument, args.timeframe, end_date)
             if args.save_plot:
                 bt.save_plot = True
+            if args.save_mongo:
+                bt.save_mongo = True
+                bt.mongo_connection = args.save_mongo_params
+            if not args.use_cached_candles:
+                bt.download = False
     if args.optimization_params1 is not None:
         for arg in args.optimization_params1:
             if arg is 'None':
