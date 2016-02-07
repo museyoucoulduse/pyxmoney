@@ -109,6 +109,9 @@ class Backtester:
         mongo_ticker = ticker #
         mongo_tf = tf #
         mongo_num_trades = profit.trades #
+        if mongo_num_trades is 0:
+            print('No trades... Skipping...')
+            return None
         mongo_max_drawdown = profit.max_drawdown() #
         mongo_total_pnl = total_pnl #
         
@@ -133,13 +136,13 @@ class Backtester:
             plt.close()
         if self.save_mongo:
             # closer to zero is better
-            mongo_benchmark = ((-(mongo_max_drawdown) * mongo_num_trades) / mongo_total_pnl) *  mongo_total_pnl
+            mongo_last_price = profit.actual_prices()[-1:].values[0] #
+            mongo_benchmark = (((-(mongo_max_drawdown) * mongo_num_trades) / mongo_total_pnl) *  mongo_total_pnl) * (mongo_last_price / 50) # 50 = margin
             mongo_profit_list = profit.profit_list() #
             mongo_profit_cumsum = profit.cumsum_profit().to_json()
             seconds = _helpers._getGranularitySeconds(tf)
             mongo_from = (dt.datetime.now() - (dt.timedelta(seconds=seconds) * self.mongo_candles.closeBid.count())).strftime('%Y%m%d%H%M%S') #
             mongo_to = dt.datetime.now().strftime('%Y%m%d%H%M%S') #
-            mongo_last_price = profit.actual_prices()[-1:].values[0] #
             
             cum_sl = []
             cum_tp = []
