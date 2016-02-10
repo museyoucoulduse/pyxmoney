@@ -15,6 +15,7 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import random
 import os
+import sys
 from pymongo import MongoClient
 
 
@@ -198,8 +199,8 @@ class Backtester:
                         'profit_cumsum': mongo_profit_cumsum,
                         'benchmark': mongo_benchmark
                     })
-            except e:
-                print('Buahahahahahahaha, the evil wizard has spelled his spell and {}'.format(e))
+            except:
+                print('Buahahahahahahaha, the evil wizard has spelled his spell and {}'.format(sys.exc_info()[0]))
             else:
                 print('Benchmark: {}'.format(mongo_benchmark))
                 print('Saved data successfully')

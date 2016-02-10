@@ -567,20 +567,13 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 int __pyx_module_is_main_code__src__granularity = 0;
 
 /* Implementation of 'code.src.granularity' */
-static char __pyx_k_D[] = "D";
 static char __pyx_k_H1[] = "H1";
-static char __pyx_k_H2[] = "H2";
-static char __pyx_k_H3[] = "H3";
-static char __pyx_k_H4[] = "H4";
-static char __pyx_k_H6[] = "H6";
-static char __pyx_k_H8[] = "H8";
 static char __pyx_k_M1[] = "M1";
 static char __pyx_k_M2[] = "M2";
 static char __pyx_k_M3[] = "M3";
 static char __pyx_k_M4[] = "M4";
 static char __pyx_k_M5[] = "M5";
 static char __pyx_k_S5[] = "S5";
-static char __pyx_k_H12[] = "H12";
 static char __pyx_k_M10[] = "M10";
 static char __pyx_k_M15[] = "M15";
 static char __pyx_k_M30[] = "M30";
@@ -598,15 +591,8 @@ static char __pyx_k_timeframes[] = "timeframes";
 static char __pyx_k_Granularity[] = "Granularity";
 static char __pyx_k_code_src_granularity[] = "code.src.granularity";
 static char __pyx_k_Timeframes_you_can_access_from[] = " Timeframes you can access from Oanda API ";
-static PyObject *__pyx_n_s_D;
 static PyObject *__pyx_n_s_Granularity;
 static PyObject *__pyx_n_s_H1;
-static PyObject *__pyx_n_s_H12;
-static PyObject *__pyx_n_s_H2;
-static PyObject *__pyx_n_s_H3;
-static PyObject *__pyx_n_s_H4;
-static PyObject *__pyx_n_s_H6;
-static PyObject *__pyx_n_s_H8;
 static PyObject *__pyx_n_s_M1;
 static PyObject *__pyx_n_s_M10;
 static PyObject *__pyx_n_s_M15;
@@ -653,15 +639,8 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {&__pyx_n_s_D, __pyx_k_D, sizeof(__pyx_k_D), 0, 0, 1, 1},
   {&__pyx_n_s_Granularity, __pyx_k_Granularity, sizeof(__pyx_k_Granularity), 0, 0, 1, 1},
   {&__pyx_n_s_H1, __pyx_k_H1, sizeof(__pyx_k_H1), 0, 0, 1, 1},
-  {&__pyx_n_s_H12, __pyx_k_H12, sizeof(__pyx_k_H12), 0, 0, 1, 1},
-  {&__pyx_n_s_H2, __pyx_k_H2, sizeof(__pyx_k_H2), 0, 0, 1, 1},
-  {&__pyx_n_s_H3, __pyx_k_H3, sizeof(__pyx_k_H3), 0, 0, 1, 1},
-  {&__pyx_n_s_H4, __pyx_k_H4, sizeof(__pyx_k_H4), 0, 0, 1, 1},
-  {&__pyx_n_s_H6, __pyx_k_H6, sizeof(__pyx_k_H6), 0, 0, 1, 1},
-  {&__pyx_n_s_H8, __pyx_k_H8, sizeof(__pyx_k_H8), 0, 0, 1, 1},
   {&__pyx_n_s_M1, __pyx_k_M1, sizeof(__pyx_k_M1), 0, 0, 1, 1},
   {&__pyx_n_s_M10, __pyx_k_M10, sizeof(__pyx_k_M10), 0, 0, 1, 1},
   {&__pyx_n_s_M15, __pyx_k_M15, sizeof(__pyx_k_M15), 0, 0, 1, 1},
@@ -812,9 +791,9 @@ PyMODINIT_FUNC PyInit_granularity(void)
  *     ''' Timeframes you can access from Oanda API '''
  *     timeframes = [             # <<<<<<<<<<<<<<
  *         'S5', 'S10', 'S15', 'S30', 'M1', 'M2', 'M3', 'M4', 'M5', 'M10', 'M15',
- *         'M30', 'H1', 'H2', 'H3', 'H4', 'H6', 'H8', 'H12', 'D']  # this don't work, 'W', 'M']
+ *         'M30', 'H1']
  */
-  __pyx_t_2 = PyList_New(20); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = PyList_New(13); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_S5);
   __Pyx_GIVEREF(__pyx_n_s_S5);
@@ -855,27 +834,6 @@ PyMODINIT_FUNC PyInit_granularity(void)
   __Pyx_INCREF(__pyx_n_s_H1);
   __Pyx_GIVEREF(__pyx_n_s_H1);
   PyList_SET_ITEM(__pyx_t_2, 12, __pyx_n_s_H1);
-  __Pyx_INCREF(__pyx_n_s_H2);
-  __Pyx_GIVEREF(__pyx_n_s_H2);
-  PyList_SET_ITEM(__pyx_t_2, 13, __pyx_n_s_H2);
-  __Pyx_INCREF(__pyx_n_s_H3);
-  __Pyx_GIVEREF(__pyx_n_s_H3);
-  PyList_SET_ITEM(__pyx_t_2, 14, __pyx_n_s_H3);
-  __Pyx_INCREF(__pyx_n_s_H4);
-  __Pyx_GIVEREF(__pyx_n_s_H4);
-  PyList_SET_ITEM(__pyx_t_2, 15, __pyx_n_s_H4);
-  __Pyx_INCREF(__pyx_n_s_H6);
-  __Pyx_GIVEREF(__pyx_n_s_H6);
-  PyList_SET_ITEM(__pyx_t_2, 16, __pyx_n_s_H6);
-  __Pyx_INCREF(__pyx_n_s_H8);
-  __Pyx_GIVEREF(__pyx_n_s_H8);
-  PyList_SET_ITEM(__pyx_t_2, 17, __pyx_n_s_H8);
-  __Pyx_INCREF(__pyx_n_s_H12);
-  __Pyx_GIVEREF(__pyx_n_s_H12);
-  PyList_SET_ITEM(__pyx_t_2, 18, __pyx_n_s_H12);
-  __Pyx_INCREF(__pyx_n_s_D);
-  __Pyx_GIVEREF(__pyx_n_s_D);
-  PyList_SET_ITEM(__pyx_t_2, 19, __pyx_n_s_D);
   if (PyObject_SetItem(__pyx_t_1, __pyx_n_s_timeframes, __pyx_t_2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
