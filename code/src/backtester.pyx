@@ -158,66 +158,70 @@ class Backtester:
             print('Connecting to {}'.format(self.mongo_connection))
             db = client.oanda
             result = db.oandaTest.find_one({'myid': mongo_myid})
-            if result is not None:
-                db.oandaTest.update({
-                    'myid': result['myid']
-                    },
-                    {
-                        '$set': {
-                            'mean_sl': mongo_mean_sl,
-                            'mean_tp': mongo_mean_tp,
-                            'last_price': mongo_last_price,
-                            'from': mongo_from,
-                            'to': mongo_to,
-                            'max_drawdown': min(result['max_drawdown'], mongo_max_drawdown),
-                            'trade_list': mongo_list_of_trades,
-                            'profit_list': mongo_profit_list,
-                            'profit_cumsum': mongo_profit_cumsum,
-                            'total_pnl': mongo_total_pnl,
-                            'num_trades': mongo_num_trades,
-                            'benchmark': mongo_benchmark
-                        }
-                    })
-            else:
-                db.oandaTest.insert_one({
-                    'myid': mongo_myid,
-                    'ticker': mongo_ticker,
-                    'tf': mongo_tf,
-                    'algo': mongo_algo,
-                    'from': mongo_from,
-                    'mean_sl': mongo_mean_sl,
-                    'mean_tp': mongo_mean_tp,
-                    'last_price': mongo_last_price,
-                    'to': mongo_to,
-                    'max_drawdown': mongo_max_drawdown,
-                    'total_pnl': mongo_total_pnl,
-                    'num_trades': mongo_num_trades,
-                    'trade_list': mongo_list_of_trades,
-                    'profit_list': mongo_profit_list,
-                    'profit_cumsum': mongo_profit_cumsum,
-                    'benchmark': mongo_benchmark
-                })
-            if True: #self.download is True
-                res_candles = db.oandaCandles.find_one({'ticker': mongo_ticker, 'tf': mongo_tf})
-                if res_candles is not None:
-                    db.oandaCandles.update({
-                        'ticker': res_candles['ticker'],
-                        'tf': res_candles['tf'],
-                    },
-                    {
-                        "$set": {'candles': self.mongo_candles.to_json()} 
-                    })
+            try:
+                if result is not None:
+                    db.oandaTest.update({
+                        'myid': result['myid']
+                        },
+                        {
+                            '$set': {
+                                'mean_sl': mongo_mean_sl,
+                                'mean_tp': mongo_mean_tp,
+                                'last_price': mongo_last_price,
+                                'from': mongo_from,
+                                'to': mongo_to,
+                                'max_drawdown': min(result['max_drawdown'], mongo_max_drawdown),
+                                'trade_list': mongo_list_of_trades,
+                                'profit_list': mongo_profit_list,
+                                'profit_cumsum': mongo_profit_cumsum,
+                                'total_pnl': mongo_total_pnl,
+                                'num_trades': mongo_num_trades,
+                                'benchmark': mongo_benchmark
+                            }
+                        })
                 else:
-                    db.oandaCandles.insert_one({
+                    db.oandaTest.insert_one({
+                        'myid': mongo_myid,
                         'ticker': mongo_ticker,
                         'tf': mongo_tf,
-                        'candles': self.mongo_candles.to_json()
+                        'algo': mongo_algo,
+                        'from': mongo_from,
+                        'mean_sl': mongo_mean_sl,
+                        'mean_tp': mongo_mean_tp,
+                        'last_price': mongo_last_price,
+                        'to': mongo_to,
+                        'max_drawdown': mongo_max_drawdown,
+                        'total_pnl': mongo_total_pnl,
+                        'num_trades': mongo_num_trades,
+                        'trade_list': mongo_list_of_trades,
+                        'profit_list': mongo_profit_list,
+                        'profit_cumsum': mongo_profit_cumsum,
+                        'benchmark': mongo_benchmark
                     })
-            print('Benchmark: {}'.format(mongo_benchmark))
-            print('Saved data successfully')
-            client.close()
-            print('Disconnected from database')
-            
+            except e:
+                print('Buahahahahahahaha, the evil wizard has spelled his spell and {}'.format(e))
+            else:
+                print('Benchmark: {}'.format(mongo_benchmark))
+                print('Saved data successfully')
+            finally:
+                client.close()
+                print('Disconnected from the database')
+            # if False: #self.download is True
+            #     res_candles = db.oandaCandles.find_one({'ticker': mongo_ticker, 'tf': mongo_tf})
+            #     if res_candles is not None:
+            #         db.oandaCandles.update({
+            #             'ticker': res_candles['ticker'],
+            #             'tf': res_candles['tf'],
+            #         },
+            #         {
+            #             "$set": {'candles': self.mongo_candles.to_json()} 
+            #         })
+            #     else:
+            #         db.oandaCandles.insert_one({
+            #             'ticker': mongo_ticker,
+            #             'tf': mongo_tf,
+            #             'candles': self.mongo_candles.to_json()
+            #         })
 
     def optimize(self, ticker=None, tf=None, min_sl=0, min_tp=0, max_sl=2000, max_tp=6000, steps=20):
         ''' Optimization method running bruteforce '''
