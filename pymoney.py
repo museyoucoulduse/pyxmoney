@@ -3,6 +3,9 @@
 from code.strategy.vwap_ewma import VWAP_EWMA
 from code.strategy.vwap_momentum import VWAP_Momentum
 from code.strategy.vwap_aroon import VWAP_Aroon
+from code.strategy.candle_engulfing import Candle_Engulfing
+from code.strategy.rsi_threshold import RSI_Threshold
+from code.strategy.rsi_threshold_reverse import RSI_Threshold_reverse
 from code.src.backtester import Backtester
 
 import datetime as dt
@@ -17,7 +20,14 @@ if __name__ == '__main__':
                     .format(__author__),
         prog='PyMoney')
     parser.add_argument(
-        '-s', '--strategy', choices=['vwap_aroon', 'vwap_ewma', 'vwap_momentum'],
+        '-s', '--strategy', choices=[
+                                     'vwap_aroon',
+                                     'vwap_ewma',
+                                     'vwap_momentum',
+                                     'engulfing',
+                                     'rsi_threshold',
+                                     'rsi_threshold_rev'
+                                     ],
         help='choose one of the strategies')
     parser.add_argument(
         '-vwap_aroon', '--strategy_vwap_aroon',
@@ -32,6 +42,18 @@ if __name__ == '__main__':
         help='explicitly choose a VWAP_EWMA strategy',
         required=False, action='store_true')
     parser.add_argument(
+        '-engulfing', '--strategy_candle_engulfing',
+        help='explicitly choose a Candle Engulfing strategy',
+        required=False, action='store_true')
+    parser.add_argument(
+        '-rsi_threshold', '--strategy_rsi_threshold',
+        help='explicitly choose a RSI threshold strategy',
+        required=False, action='store_true')
+    parser.add_argument(
+        '-rsi_threshold_rev', '--strategy_rsi_threshold_reverse',
+        help='explicitly choose a RSI threshold strategy',
+        required=False, action='store_true')
+    parser.add_argument(
         '-vwap_aroon_params', '--strategy_vwap_aroon_params',
         default=[500, 700, 25], metavar='VWAP_AROON_PARAMS',
         help='give parameters to VWAP_Aroon strategy: sl, tp and span',
@@ -43,7 +65,7 @@ if __name__ == '__main__':
         type=int, required=False)
     parser.add_argument(
         '-vwap_ewma_params', '--strategy_vwap_ewma_params',
-        default=[500, 700, 25, 60], metavar='VWAP_EWMA_PARAMS',
+        default=[500, 700, 17, 60], metavar='VWAP_EWMA_PARAMS',
         help='give parameters to VWAP_EWMA strategy: sl, tp, short ma and long ma',
         type=int, required=False)
     parser.add_argument(
@@ -158,6 +180,51 @@ if __name__ == '__main__':
                 bt.mongo_connection = args.save_mongo_params
             if not args.use_cached_candles:
                 bt.download = False
+    elif args.strategy == 'engulfing' or args.strategy_candle_engulfing:
+        # if args.strategy_vwap_ewma_params is not None:
+        if type(args.end_date) is not dt.datetime:
+            end_date = dt.datetime(args.end_date)
+        else:
+            end_date = args.end_date
+        bt = Backtester(Candle_Engulfing(),
+            args.instrument, args.timeframe, end_date)
+        if args.save_plot:
+            bt.save_plot = True
+        if args.save_mongo:
+            bt.save_mongo = True
+            bt.mongo_connection = args.save_mongo_params
+        if not args.use_cached_candles:
+            bt.download = False
+    elif args.strategy == 'rsi_threshold' or args.strategy_rsi_threshold:
+        # if args.strategy_vwap_ewma_params is not None:
+        if type(args.end_date) is not dt.datetime:
+            end_date = dt.datetime(args.end_date)
+        else:
+            end_date = args.end_date
+        bt = Backtester(RSI_Threshold(),
+            args.instrument, args.timeframe, end_date)
+        if args.save_plot:
+            bt.save_plot = True
+        if args.save_mongo:
+            bt.save_mongo = True
+            bt.mongo_connection = args.save_mongo_params
+        if not args.use_cached_candles:
+            bt.download = False
+    elif args.strategy == 'rsi_threshold_rev' or args.strategy_rsi_threshold_reverse:
+        # if args.strategy_vwap_ewma_params is not None:
+        if type(args.end_date) is not dt.datetime:
+            end_date = dt.datetime(args.end_date)
+        else:
+            end_date = args.end_date
+        bt = Backtester(RSI_Threshold_reverse(),
+            args.instrument, args.timeframe, end_date)
+        if args.save_plot:
+            bt.save_plot = True
+        if args.save_mongo:
+            bt.save_mongo = True
+            bt.mongo_connection = args.save_mongo_params
+        if not args.use_cached_candles:
+            bt.download = False
     if args.optimization_params1 is not None:
         for arg in args.optimization_params1:
             if arg is 'None':
